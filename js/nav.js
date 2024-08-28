@@ -4,6 +4,15 @@
  * Handling navbar clicks and updating navbar
  */
 
+// Brings user to a submission option for a new story
+function navSubmissionForm (evt) {
+  console.debug('navSubmissionForm',evt);
+  hidePageComponents();
+  $submissionForm.show();
+}
+
+$submit.on('click',navSubmissionForm);
+
 /** Show main list of all stories when click site name */
 
 function navAllStories(evt) {
@@ -29,8 +38,35 @@ $navLogin.on("click", navLoginClick);
 
 function updateNavOnLogin() {
   console.debug("updateNavOnLogin");
-  $(".main-nav-links").show();
+  $(".nav-links").show();
   $navLogin.hide();
   $navLogOut.show();
   $navUserProfile.text(`${currentUser.username}`).show();
 }
+
+// Favorites option functionality
+function showMyFavorites (evt) {
+  console.debug('Favorite Stories',evt);
+  hidePageComponents();
+  showFavoriteStories();
+}
+
+$body.on('click', '#nav-fav', showMyFavorites);
+
+// My stories option functionality
+function showMyStories (evt) {
+  console.debug('My Stories', evt);
+  hidePageComponents();
+  showUserStories();
+}
+
+$body.on('click', '#my-stories', showMyStories);
+
+// User profile option functionality
+function showUserProfile (evt) {
+  console.debug ('User Profile', evt);
+  hidePageComponents();
+  $navUserProfile.show();
+}
+
+$navUserProfile.on('click', showUserProfile);

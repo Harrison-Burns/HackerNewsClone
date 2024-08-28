@@ -32,8 +32,14 @@
 
 .story-author {
   margin-left: 2em;
+  color: orange;
 }
 
 .story-user {
   display: block;
+  color: green;
+}
+
+.delete-button {
+  color: rgb(243, 49, 49);
 }
